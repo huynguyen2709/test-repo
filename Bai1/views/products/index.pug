@@ -1,0 +1,64 @@
+extends ../layouts/common
+block content 
+    h1 Product 
+    
+    .row 
+        each product in products
+            .col-md-3
+                .card(style='width: 18rem;')
+                    img.card-img-top(src= product.image alt='Card image cap')
+                    .card-body
+                        h5.card-title= product.name
+                        p.card-text= product.description
+                        a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
+
+    //- nav(aria-label='Page navigation example')
+    //-     ul.pagination
+    //-             if productsFull.previous > 0
+    //-                 li.page-item
+    //-                     a.page-link(href=`/products?page=${productsFull.previous}`) Previous
+    //-             else 
+    //-                 li.page-item
+    //-                     a.page-link(href=`/products?page=${productsFull.previous}`, 
+    //-                     style='color: gray;pointer-events: none') Previous       
+    //-             if productsFull.previous > 0
+    //-                 li.page-item
+    //-                     a.page-link(href=`/products?page=${productsFull.previous}`)= productsFull.previous
+    //-             li.page-item.active
+    //-                 a.page-link(href=`/products?page=${productsFull.current}`)= productsFull.current 
+    //-             if productsFull.current < productsFull.numberOfPage
+    //-                 li.page-item
+    //-                     a.page-link(href=`/products?page=${productsFull.next}`)= productsFull.next
+    //-                 //- next part
+    //-             if productsFull.current < productsFull.numberOfPage
+    //-                 li.page-item
+    //-                     a.page-link(href=`/products?page=${productsFull.next}`) Next
+    //-             else 
+    //-                 li.page-item
+    //-                     a.page-link(href=`/products?page=${productsFull.next}`, 
+    //-                     style='color: gray;pointer-events: none') Next 
+
+    nav(aria-label='Page navigation example')
+        ul.pagination
+                li.page-item
+                    a.page-link(href=`/products?page=`) Previous
+                //- else 
+                //-     li.page-item
+                //-         a.page-link(href=`/products?page=${productsFull.previous}`, 
+                //-         style='color: gray;pointer-events: none') Previous       
+                //- if productsFull.previous > 0
+                    li.page-item
+                        a.page-link(href=`/products?page=${productsFull.previous}`)= productsFull.previous
+                li.page-item.active
+                    a.page-link(href=`/products?page=`)= 1
+                li.page-item
+                    a.page-link(href=`/products?page=`)= 2
+                li.page-item
+                    a.page-link(href=`/products?page=`)= 3
+                    //- next part
+                li.page-item
+                    a.page-link(href=`/products?page=`) Next
+                //- else 
+                    li.page-item
+                        a.page-link(href=`/products?page=${productsFull.next}`, 
+                        style='color: gray;pointer-events: none') Next 

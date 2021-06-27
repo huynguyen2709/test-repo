@@ -1,0 +1,22 @@
+extends ../layouts/common
+block content 
+    h1 Create Users 
+
+    if errors
+        each error in errors 
+            div(class='alert alert-danger')= error 
+
+    form(action="/users/create", method='POST' enctype='multipart/form-data') 
+        div(class='form-group')
+            label(for='name') Name 
+            input(type="text", name='name' class='form-control' id='name', value= value ? value.name : "") 
+
+        div(class='form-group')
+            label(for='phone') Phone 
+            input(type="text", name='phone' class='form-control' id='phone', value= value ? value.phone : "") 
+
+        div(class='form-group')
+            label(for='avatar') Avatar 
+            input(type="file", name='avatar' class='form-control-file' id='avatar') 
+             
+        button(class='btn btn-primary') Create 
